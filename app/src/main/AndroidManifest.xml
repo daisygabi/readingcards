@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.readingcards">
+
+    <application android:name="com.readingcards.ProjectApplication"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".notes.MainNotesActivity"
+                android:theme="@style/AppTheme.OverlapSystemBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".notedetail.NoteDetailActivity"/>
+        <activity android:name=".addeditnote.AddEditNoteActivity"/>
+        <activity android:name=".collections.CardCollectionActivity"/>
+        <activity android:name=".addcardcollection.AddCardCollectionActivity"/>
+        <activity android:name=".collectiondetail.CollectionDetailActivity"/>
+        <activity android:name=".cards.ReadNotesAsCardsActivity"/>
+
+        <meta-data android:name="android.app.shortcuts"
+                   android:resource="@xml/static_app_shortcut"/>
+
+        <!-- REQUIRED Set the package for your model classes,
+      you can set mutiple packages by using the addPackageRoot on AndroidInitializeConfig -->
+        <meta-data android:name="Rush_classes_package" android:value="com.example.app.model" />
+
+        <!-- Updating this will cause a database upgrade -->
+        <meta-data android:name="Rush_db_version" android:value="1" />
+
+        <!-- Database name -->
+        <meta-data android:name="Rush_db_name" android:value="rush.db" />
+
+        <!-- Setting this to true will cause a migration to happen every launch,
+        this is very handy during development although could cause data loss -->
+        <meta-data android:name="Rush_debug" android:value="true" />
+
+        <!-- Setting this to true mean that tables will only be created of classes that
+        extend RushObject and are annotated with @RushTableAnnotation -->
+        <meta-data android:name="Rush_requires_table_annotation" android:value="true" />
+
+        <!-- Turning on logging can be done by settings this value to true -->
+        <meta-data android:name="Rush_log" android:value="false" />
+    </application>
+
+</manifest>

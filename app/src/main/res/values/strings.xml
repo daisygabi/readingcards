@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Reading Notes</string>
+    <string name="add_note">New Note</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="note_details">Details</string>
+    <string name="add_collection">New Collection</string>
+    <string name="edit_collection">Edit Collection</string>
+    <string name="read_as_card_note">Read as cards</string>
+    <string name="note_marked_complete">Note is completed</string>
+    <string name="menu_filter">Filter</string>
+    <string name="menu_delete_note">Delete note</string>
+    <string name="menu_delete_all">Delete All</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Enter your description here.</string>
+    <string name="notes_title">Your notes</string>
+    <string name="collection_cards_title">Collections</string>
+    <string name="no_data">No data</string>
+    <string name="loading">LOADING</string>
+
+    <string name="empty_list">No data found.</string>
+    <string name="append_notes_to_collection">Append notes to collection:</string>
+    <string name="no_notes_in_collection">No notes added in this collection.</string>
+
+    <string name="nav_all">All</string>
+    <string name="nav_completed">Completed</string>
+    <string name="label_all">All Notes</string>
+    <string name="label_completed">Completed Notes</string>
+    <string name="no_notes_completed">You have no completed Notes!</string>
+    <string name="no_notes_add">Add a new note +</string>
+    <string name="no_collections">You have no Collections!</string>
+    <string name="refresh">Refresh</string>
+    <string name="finished_pack">Refresh to re-read</string>
+    <string name="notes_label">\u00A0 notes</string>
+
+    <!-- Timer sheet resources -->
+    <string name="reading_timer_label">Set reading timer</string>
+    <string name="default_timer_time_label">00:00</string>
+    <string name="reset_timer">Reset</string>
+
+    <!-- App Shortcuts. Api >=21-->
+    <string name="shortcut_short_label">Shortcut has a short label</string>
+    <string name="shortcut_long_label">Shortcut has a long label</string>
+    <string name="shortcut_disabled_message">Shortcut is disabled</string>
+
+    <string name="delete_all_collections_confirmation">Are you sure you want to delete ALL collections?</string>
+    <string name="delete_all_notes_confirmation">Are you sure you want to delete ALL notes?</string>
+    <string name="info_label">Info</string>
+</resources>
