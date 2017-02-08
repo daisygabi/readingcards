@@ -101,8 +101,7 @@ public class AddEditNotePresenter implements AddEditNoteContract.Presenter {
     }
 
     public boolean isNewNote() {
-//        return noteId == null;
-        return noteId == null ? true : false;
+        return noteId == null;
     }
 
     private void createNote(Note newNote) {
