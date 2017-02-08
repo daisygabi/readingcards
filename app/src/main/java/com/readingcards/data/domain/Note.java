@@ -21,7 +21,6 @@ import com.google.common.base.Strings;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import co.uk.rushorm.core.RushCore;
@@ -32,9 +31,6 @@ import co.uk.rushorm.core.RushObject;
  */
 public class Note extends RushObject implements Parcelable {
 
-    @NonNull
-    private String noteId;
-
     @Nullable
     private String title;
 
@@ -44,11 +40,7 @@ public class Note extends RushObject implements Parcelable {
     @Nullable
     private boolean completed;
 
-    @Nullable
-    private boolean selected;
-
-    public Note() {
-    }
+    public Note() {}
 
     /**
      * Use this constructor to specify a completed Note if the Note already has an id (copy of
@@ -66,7 +58,6 @@ public class Note extends RushObject implements Parcelable {
     }
 
     protected Note(Parcel in) {
-        noteId = in.readString();
         title = in.readString();
         description = in.readString();
         completed = in.readByte() != 0;
@@ -120,10 +111,6 @@ public class Note extends RushObject implements Parcelable {
         this.completed = completed;
     }
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -138,6 +125,14 @@ public class Note extends RushObject implements Parcelable {
         this.completed = completed;
     }
 
+    public void setTitle(@Nullable String title) {
+        this.title = title;
+    }
+
+    public void setDescription(@Nullable String description) {
+        this.description = description;
+    }
+
     @Override
     public String getId() {
         return RushCore.getInstance().getId(this);
@@ -150,7 +145,6 @@ public class Note extends RushObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(RushCore.getInstance().getId(this));
         parcel.writeString(title);
         parcel.writeString(description);
         parcel.writeByte((byte) (completed ? 1 : 0));
