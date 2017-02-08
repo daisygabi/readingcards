@@ -26,3 +26,6 @@
 # Uncomment this if you use Mockito
 -dontwarn org.mockito.**
 -keep public class * implements co.uk.rushorm.core.Rush { *; }
+-keepclassmembers class * extends com.stephentuso.welcome.WelcomeActivity {
+    public static java.lang.String welcomeKey();
+}
