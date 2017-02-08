@@ -137,11 +137,6 @@ public class Note extends RushObject implements Parcelable {
                 Objects.equal(description, note.description);
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hashCode(noteId, title, description);
-//    }
-
     public void setCompleted(@Nullable boolean completed) {
         this.completed = completed;
     }
