@@ -21,6 +21,7 @@ import com.google.common.base.Strings;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import co.uk.rushorm.core.RushCore;
@@ -31,8 +32,8 @@ import co.uk.rushorm.core.RushObject;
  */
 public class Note extends RushObject implements Parcelable {
 
-//    @NonNull
-//    private String noteId;
+    @NonNull
+    private String noteId;
 
     @Nullable
     private String title;
@@ -65,7 +66,7 @@ public class Note extends RushObject implements Parcelable {
     }
 
     protected Note(Parcel in) {
-//        noteId = in.readString();
+        noteId = in.readString();
         title = in.readString();
         description = in.readString();
         completed = in.readByte() != 0;
@@ -119,10 +120,6 @@ public class Note extends RushObject implements Parcelable {
         this.completed = completed;
     }
 
-    public boolean isSelected() {
-        return selected;
-    }
-
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
@@ -134,7 +131,7 @@ public class Note extends RushObject implements Parcelable {
         Note note = (Note) o;
         return
                 Objects.equal(title, note.title) &&
-                Objects.equal(description, note.description);
+                        Objects.equal(description, note.description);
     }
 
     public void setCompleted(@Nullable boolean completed) {
