@@ -56,11 +56,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     holder.checkbox.setChecked(true);
-                    note.setSelected(true);
                     itemListener.onClick(note);
                 } else {
                     holder.checkbox.setChecked(false);
-                    note.setSelected(false);
                     itemListener.onUnclick(note);
                 }
             }
