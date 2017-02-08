@@ -46,13 +46,10 @@ public class AddEditNoteFragment extends Fragment implements AddEditNoteContract
 
     private EditText titleTxt;
     private EditText contentTxt;
+    private static String id;
 
-    public static AddEditNoteFragment newInstance(@Nullable String noteId) {
-        Bundle arguments = new Bundle();
-        arguments.putString(ARGUMENT_EDIT_NOTE_ID, noteId);
-        AddEditNoteFragment fragment = new AddEditNoteFragment();
-        fragment.setArguments(arguments);
-        return fragment;
+    public static AddEditNoteFragment newInstance() {
+        return new AddEditNoteFragment();
     }
 
     public AddEditNoteFragment() {
@@ -104,7 +101,6 @@ public class AddEditNoteFragment extends Fragment implements AddEditNoteContract
     @Override
     public void showErrorMessage(String message) {
         System.out.println(message);
-//        Snackbar.make(titleTxt, getString(R.string.empty_note_message), Snackbar.LENGTH_LONG).show();
     }
 
     @Override

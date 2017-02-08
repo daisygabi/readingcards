@@ -58,7 +58,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
         String noteId = getIntent().getStringExtra(AddEditNoteFragment.ARGUMENT_EDIT_NOTE_ID);
 
         if (addEditNoteFragment == null) {
-            addEditNoteFragment = AddEditNoteFragment.newInstance(noteId);
+            addEditNoteFragment = AddEditNoteFragment.newInstance();
 
             if (getIntent().hasExtra(AddEditNoteFragment.ARGUMENT_EDIT_NOTE_ID)) {
                 actionBar.setTitle(R.string.edit_note);
