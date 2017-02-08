@@ -126,18 +126,29 @@ public class AddEditNotePresenter implements AddEditNoteContract.Presenter {
         }
     }
 
-    private void updateNote(Note newNote) {
+    private void updateNote(final Note newNote) {
         if (isNewNote()) {
             throw new RuntimeException("updateNote() was called but note is new.");
         }
-        Note note = checkNotNull(newNote);
         checkNotNull(notesRepository);
         checkNotNull(addNoteView);
-        notesRepository.updateNote(note, new NoteDataSource.SaveOrUpdateNoteCallback() {
-
+        notesRepository.getNote(noteId, new NoteDataSource.GetNoteCallback() {
             @Override
             public void onSuccess(Note note) {
-                addNoteView.showNote(note.getId());
+                note.setCompleted(newNote.isCompleted());
+                note.setTitle(newNote.getTitle());
+                note.setDescription(newNote.getDescription());
+                notesRepository.updateNote(note, new NoteDataSource.SaveOrUpdateNoteCallback() {
+                    @Override
+                    public void onSuccess(Note note) {
+                        addNoteView.showNote(note.getId());
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                        addNoteView.showErrorMessage(message);
+                    }
+                });
             }
 
             @Override
@@ -145,8 +156,5 @@ public class AddEditNotePresenter implements AddEditNoteContract.Presenter {
                 addNoteView.showErrorMessage(message);
             }
         });
-
-        // After an edit, go back to the list.
-        //addNoteView.showNoteList();
     }
 }
