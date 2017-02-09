@@ -23,4 +23,7 @@
 
     <drawable name="touchFeedback">#CFD8DC</drawable>
 
+    <color name="step_one">#4E99B1</color>
+    <color name="step_two">#F29898</color>
+    <color name="step_three">#EC4C4C</color>
 </resources>

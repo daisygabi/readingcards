@@ -31,11 +31,15 @@ import android.view.MenuItem;
 
 import com.readingcards.Injection;
 import com.readingcards.R;
+import com.readingcards.ReadingCardsSplashScreen;
 import com.readingcards.collections.CardCollectionActivity;
 import com.readingcards.util.ActivityUtils;
 import com.readingcards.util.EspressoIdlingResource;
+import com.stephentuso.welcome.WelcomeHelper;
 
 public class MainNotesActivity extends AppCompatActivity {
+
+    private WelcomeHelper welcomeScreen;
 
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
 
@@ -54,6 +58,10 @@ public class MainNotesActivity extends AppCompatActivity {
         if (ACTION_QUICKSTART.equals(getIntent().getAction())) {
             //startQuickStart();
         }
+
+        // Add Splash screen
+        welcomeScreen = new WelcomeHelper(this, ReadingCardsSplashScreen.class);
+        welcomeScreen.show(savedInstanceState);
 
         // Set up the toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -89,8 +97,8 @@ public class MainNotesActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putSerializable(CURRENT_FILTERING_KEY, mNotesPresenter.getFiltering());
-
         super.onSaveInstanceState(outState);
+        welcomeScreen.onSaveInstanceState(outState);
     }
 
     @Override

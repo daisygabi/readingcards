@@ -38,6 +38,8 @@
         <activity android:name=".addcardcollection.AddCardCollectionActivity"/>
         <activity android:name=".collectiondetail.CollectionDetailActivity"/>
         <activity android:name=".cards.ReadNotesAsCardsActivity"/>
+        <activity android:name=".ReadingCardsSplashScreen"
+                  android:theme="@style/WelcomeScreenTheme"/>
 
         <meta-data android:name="android.app.shortcuts"
                    android:resource="@xml/static_app_shortcut"/>
