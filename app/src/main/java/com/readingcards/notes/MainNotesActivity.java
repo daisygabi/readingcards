@@ -16,7 +16,13 @@
 
 package com.readingcards.notes;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.graphics.drawable.Icon;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.NavigationView;
@@ -32,32 +38,28 @@ import android.view.MenuItem;
 import com.readingcards.Injection;
 import com.readingcards.R;
 import com.readingcards.ReadingCardsSplashScreen;
+import com.readingcards.addeditnote.AddEditNoteActivity;
 import com.readingcards.collections.CardCollectionActivity;
 import com.readingcards.util.ActivityUtils;
 import com.readingcards.util.EspressoIdlingResource;
 import com.stephentuso.welcome.WelcomeHelper;
 
+import java.util.Arrays;
+
 public class MainNotesActivity extends AppCompatActivity {
 
     private WelcomeHelper welcomeScreen;
-
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
-
-    // For app shortcut for api 25 and above
-    private static final String ACTION_QUICKSTART = "com.readingcards.QUICKSTART";
-
     private DrawerLayout mDrawerLayout;
-
     private NotesPresenter mNotesPresenter;
 
+    @TargetApi(Build.VERSION_CODES.N_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notes_act);
 
-        if (ACTION_QUICKSTART.equals(getIntent().getAction())) {
-            //startQuickStart();
-        }
+        createDynamicShortcuts();
 
         // Add Splash screen
         welcomeScreen = new WelcomeHelper(this, ReadingCardsSplashScreen.class);
@@ -92,6 +94,36 @@ public class MainNotesActivity extends AppCompatActivity {
         mNotesPresenter = new NotesPresenter(
                 Injection.provideNotesRepository(getApplicationContext()), notesFragment);
 
+    }
+
+    @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.N_MR1)
+    @TargetApi(Build.VERSION_CODES.N_MR1)
+    private void createDynamicShortcuts() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N_MR1) {
+            ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
+
+            ShortcutInfo cardCollectionShortcut = new ShortcutInfo.Builder(this, "Collections")
+                    .setShortLabel("Collections")
+                    .setIcon(Icon.createWithResource(this, R.drawable.ic_list))
+                    .setIntents(
+                            new Intent[]{
+                                    new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, CardCollectionActivity.class)
+                                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            })
+                    .build();
+
+            ShortcutInfo notesShortcut = new ShortcutInfo.Builder(this, "Add note")
+                    .setShortLabel("Add Note")
+                    .setIcon(Icon.createWithResource(this, R.drawable.ic_step1))
+                    .setIntents(
+                            new Intent[]{
+                                    new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, AddEditNoteActivity.class)
+                                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            })
+                    .build();
+
+            shortcutManager.setDynamicShortcuts(Arrays.asList(cardCollectionShortcut, notesShortcut));
+        }
     }
 
     @Override
