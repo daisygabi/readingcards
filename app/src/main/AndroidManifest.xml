@@ -41,9 +41,6 @@
         <activity android:name=".ReadingCardsSplashScreen"
                   android:theme="@style/WelcomeScreenTheme"/>
 
-        <meta-data android:name="android.app.shortcuts"
-                   android:resource="@xml/static_app_shortcut"/>
-
         <!-- REQUIRED Set the package for your model classes,
       you can set mutiple packages by using the addPackageRoot on AndroidInitializeConfig -->
         <meta-data android:name="Rush_classes_package" android:value="com.example.app.model" />
