@@ -83,7 +83,6 @@ public class AddCardCollectionPresenter implements AddCardCollectionContract.Pre
                     addCollectionView.showErrorMessage("Woops, something went wrong. Error creating a new Card.");
                 }
             });
-//            collectionRepository.saveCollection(cardCollection, this);
         }
     }
 

@@ -82,7 +82,6 @@ public class AddEditNotePresenter implements AddEditNoteContract.Presenter {
         notesRepository.getNote(noteId, new NoteDataSource.GetNoteCallback() {
             @Override
             public void onSuccess(Note note) {
-                //notesRepository.getNote(noteId, this);
                 addNoteView.setDescription(note.getDescription());
                 addNoteView.setTitle(note.getTitle());
             }
@@ -114,7 +113,6 @@ public class AddEditNotePresenter implements AddEditNoteContract.Presenter {
             notesRepository.saveNote(note, new NoteDataSource.SaveOrUpdateNoteCallback() {
                 @Override
                 public void onSuccess(Note note) {
-//                    checkNotNull(note);
                 }
 
                 @Override
