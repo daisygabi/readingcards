@@ -47,7 +47,7 @@ public class NoteDataSourceImplementation implements NoteDataSource {
          * getId() will return object id or null if it has not been saved
          */
         Note note = new RushSearch().whereId(noteId).findSingle(Note.class);
-        if (note != null) {
+        if (note != null && callback != null) {
             callback.onSuccess(note);
         } else {
             callback.onError("Error finding the note");
@@ -59,7 +59,9 @@ public class NoteDataSourceImplementation implements NoteDataSource {
         /* Save asynchronously */
         checkNotNull(note);
         note.save();
-        callback.onSuccess(note);
+        if(callback != null) {
+            callback.onSuccess(note);
+        }
     }
 
     @Override

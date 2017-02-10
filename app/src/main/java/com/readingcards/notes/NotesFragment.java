@@ -45,6 +45,7 @@ import com.readingcards.data.domain.Note;
 import com.readingcards.notedetail.NoteDetailActivity;
 import com.readingcards.notes.adapter.NoteAdapter;
 import com.readingcards.util.ActivityUtils;
+import com.readingcards.util.SharedPrefsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,6 +86,9 @@ public class NotesFragment extends Fragment implements NotesContract.View {
     @BindView(R.id.refresh_layout)
     ScrollChildSwipeRefreshLayout swipeRefreshLayout;
 
+    @NonNull
+    private SharedPrefsUtils sharedPrefsUtils;
+
     public static NotesFragment newInstance() {
         return new NotesFragment();
     }
@@ -112,6 +116,12 @@ public class NotesFragment extends Fragment implements NotesContract.View {
                 showAddNote();
             }
         });
+
+        // Create dummy data at first run of the app to make UI look more appealing
+        sharedPrefsUtils = new SharedPrefsUtils(getActivity().getApplicationContext());
+         if(sharedPrefsUtils.getBooleanValue(getActivity().getString(R.string.preference_first_run))) {
+            saveDummyNotes();
+        }
 
         // Set up floating action button
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_note);
@@ -141,6 +151,11 @@ public class NotesFragment extends Fragment implements NotesContract.View {
 
         setHasOptionsMenu(true);
         return root;
+    }
+
+    private void saveDummyNotes() {
+        presenter.createDummyNotesAtFirstRun();
+        sharedPrefsUtils.updateBooleanValue(getActivity().getString(R.string.preference_first_run), false);
     }
 
     @Override

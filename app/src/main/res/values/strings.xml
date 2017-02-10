@@ -61,4 +61,7 @@
     <string name="delete_all_collections_confirmation">Are you sure you want to delete ALL collections?</string>
     <string name="delete_all_notes_confirmation">Are you sure you want to delete ALL notes?</string>
     <string name="info_label">Info</string>
+
+    <string name="preference_file_key">READINGCARDS</string>
+    <string name='preference_first_run'>firstrun</string>
 </resources>

@@ -73,5 +73,7 @@ public interface NotesContract {
         void deleteAllNotes();
 
         void setFiltering(NotesFilterType type);
+
+        void createDummyNotesAtFirstRun();
     }
 }

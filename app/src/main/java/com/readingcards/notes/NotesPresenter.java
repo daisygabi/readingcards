@@ -18,13 +18,13 @@ package com.readingcards.notes;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.readingcards.addcardcollection.AddCardCollectionActivity;
 import com.readingcards.data.domain.Note;
 import com.readingcards.data.repository.NotesRepository;
 import com.readingcards.data.source.NoteDataSource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.uk.rushorm.core.RushCallback;
@@ -92,6 +92,17 @@ public class NotesPresenter implements NotesContract.Presenter {
     @Override
     public void setFiltering(NotesFilterType type) {
 
+    }
+
+    @Override
+    public void createDummyNotesAtFirstRun() {
+        List<Note> dummyNotes = new ArrayList<Note>();
+        dummyNotes.add(new Note("First note", "This is a demo of how a note will look like. Feel free to create your own", false));
+        dummyNotes.add(new Note("What do you want to do?", "This is a demo of how a note will look like. Feel free to create your own", false));
+        dummyNotes.add(new Note("Perfect pitch", "This is a demo of how a note will look like. Feel free to create your own", false));
+        for(Note dummyNote : dummyNotes) {
+            repository.saveNote(dummyNote, null);
+        }
     }
 
     /**
