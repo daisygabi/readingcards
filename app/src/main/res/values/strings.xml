@@ -64,4 +64,7 @@
 
     <string name="preference_file_key">READINGCARDS</string>
     <string name='preference_first_run'>firstrun</string>
+
+    <!-- Statistics -->
+    <string name="statistics_label">Notes Statistics</string>
 </resources>

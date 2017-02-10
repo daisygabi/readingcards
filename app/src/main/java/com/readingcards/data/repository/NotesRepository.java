@@ -98,4 +98,9 @@ public class NotesRepository implements NoteDataSource {
     public void setNoteAsComplete(@NonNull Note note) {
         dataSource.setNoteAsComplete(note);
     }
+
+    @Override
+    public int getAllNotesSize() {
+        return dataSource.getAllNotesSize();
+    }
 }

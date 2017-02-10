@@ -59,7 +59,7 @@ public class NoteDataSourceImplementation implements NoteDataSource {
         /* Save asynchronously */
         checkNotNull(note);
         note.save();
-        if(callback != null) {
+        if (callback != null) {
             callback.onSuccess(note);
         }
     }
@@ -120,7 +120,7 @@ public class NoteDataSourceImplementation implements NoteDataSource {
     public void getCompletedNotes(@NonNull LoadNotesCallback callback) {
         List<Note> notes = new RushSearch().whereEqual("completed", true).find(Note.class);
 //        if (notes != null && !notes.isEmpty()) {
-            callback.onSuccess(notes);
+        callback.onSuccess(notes);
 //        }
     }
 
@@ -129,5 +129,10 @@ public class NoteDataSourceImplementation implements NoteDataSource {
         checkNotNull(note);
         note.setCompleted(true);
         note.save();
+    }
+
+    @Override
+    public int getAllNotesSize() {
+        return new RushSearch().find(Note.class).size();
     }
 }

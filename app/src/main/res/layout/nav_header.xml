@@ -14,24 +14,26 @@
   ~ limitations under the License.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:gravity="bottom"
-             android:orientation="vertical"
-             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-             android:theme="@style/ThemeOverlay.AppCompat.Dark">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="160dp"
+              android:orientation="vertical"
+              android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
+            android:id="@+id/statistics_label"
             android:layout_width="match_parent"
+            android:background="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@android:color/white"
-            android:padding="@dimen/activity_horizontal_margin"
             android:textSize="@dimen/header"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:text="Statistics"/>
+            android:text="@string/statistics_label"/>
 
     <TextView
             android:id="@+id/notes_statistics_view"
@@ -40,8 +42,7 @@
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
             android:textColor="@color/colorPrimary"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:text="32 created notes"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
             android:id="@+id/collections_statistics_view"
@@ -49,8 +50,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:text="2 created collections"
             android:textColor="@color/colorPrimary"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-</FrameLayout>
+</LinearLayout>

@@ -54,4 +54,6 @@ public interface NoteDataSource {
     void getCompletedNotes(@NonNull LoadNotesCallback callback);
 
     void setNoteAsComplete(@NonNull Note note);
+
+    int getAllNotesSize();
 }

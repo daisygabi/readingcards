@@ -34,6 +34,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.readingcards.Injection;
 import com.readingcards.R;
@@ -73,14 +75,6 @@ public class MainNotesActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(getString(R.string.app_name));
 
-        // Set up the navigation drawer.
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.notes_nav_view);
-        if (navigationView != null) {
-            setupDrawerContent(navigationView);
-        }
-
         NotesFragment notesFragment =
                 (NotesFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
         if (notesFragment == null) {
@@ -94,6 +88,22 @@ public class MainNotesActivity extends AppCompatActivity {
         mNotesPresenter = new NotesPresenter(
                 Injection.provideNotesRepository(getApplicationContext()), notesFragment);
 
+        // Set up the navigation drawer.
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.notes_nav_view);
+        if (navigationView != null) {
+            setAppStatistics(navigationView);
+            setupDrawerContent(navigationView);
+        }
+    }
+
+    private void setAppStatistics(NavigationView navigationView) {
+        int notesSize = mNotesPresenter.getAllNotesSize();
+
+        View header = navigationView.getHeaderView(0);
+        TextView notesStatsTextView = (TextView) header.findViewById(R.id.notes_statistics_view);
+        notesStatsTextView.setText(notesSize + " Notes");
     }
 
     @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.N_MR1)
