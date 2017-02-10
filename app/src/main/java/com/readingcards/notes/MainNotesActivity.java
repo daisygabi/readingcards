@@ -34,14 +34,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import com.readingcards.Injection;
 import com.readingcards.R;
 import com.readingcards.ReadingCardsSplashScreen;
 import com.readingcards.addeditnote.AddEditNoteActivity;
 import com.readingcards.collections.CardCollectionActivity;
+import com.readingcards.statistics.StatisticsPresenter;
 import com.readingcards.util.ActivityUtils;
 import com.readingcards.util.EspressoIdlingResource;
 import com.stephentuso.welcome.WelcomeHelper;
@@ -54,6 +53,7 @@ public class MainNotesActivity extends AppCompatActivity {
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
     private DrawerLayout mDrawerLayout;
     private NotesPresenter notesPresenter;
+    private StatisticsPresenter statsPresenter;
 
     @TargetApi(Build.VERSION_CODES.N_MR1)
     @Override
@@ -93,17 +93,10 @@ public class MainNotesActivity extends AppCompatActivity {
         mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
         NavigationView navigationView = (NavigationView) findViewById(R.id.notes_nav_view);
         if (navigationView != null) {
-            setAppStatistics(navigationView);
+            statsPresenter = new StatisticsPresenter(Injection.provideStatisticsRepository(getApplicationContext()));
+            ActivityUtils.setAppStatistics(navigationView, statsPresenter);
             setupDrawerContent(navigationView);
         }
-    }
-
-    private void setAppStatistics(NavigationView navigationView) {
-        int notesSize = notesPresenter.getAllNotesSize();
-
-        View header = navigationView.getHeaderView(0);
-        TextView notesStatsTextView = (TextView) header.findViewById(R.id.notes_statistics_view);
-        notesStatsTextView.setText(notesSize + " Notes");
     }
 
     @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.N_MR1)
