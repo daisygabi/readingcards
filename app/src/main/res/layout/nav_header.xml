@@ -13,17 +13,17 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="160dp"
+              android:layout_height="wrap_content"
               android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_horizontal_margin"
               android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
             android:id="@+id/statistics_label"
             android:layout_width="match_parent"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/step_two"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@android:color/white"
@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/stats_normal"
+            android:textColor="@color/step_two"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/stats_normal"
+            android:textColor="@color/step_two"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
 </LinearLayout>
