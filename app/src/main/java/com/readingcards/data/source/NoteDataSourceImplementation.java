@@ -119,9 +119,9 @@ public class NoteDataSourceImplementation implements NoteDataSource {
     @Override
     public void getCompletedNotes(@NonNull LoadNotesCallback callback) {
         List<Note> notes = new RushSearch().whereEqual("completed", true).find(Note.class);
-//        if (notes != null && !notes.isEmpty()) {
-        callback.onSuccess(notes);
-//        }
+        if(callback != null) {
+            callback.onSuccess(notes);
+        }
     }
 
     @Override
