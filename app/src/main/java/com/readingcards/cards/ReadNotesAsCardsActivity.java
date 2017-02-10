@@ -76,7 +76,7 @@ public class ReadNotesAsCardsActivity extends AppCompatActivity {
         readNotesAsCardsPresenter = new ReadNotesAsCardsPresenter(
                 Injection.provideNotesRepository(getApplicationContext()),
                 readAsCardFragment,
-                shouldLoadDataFromRepo, new SharedPrefsUtils(getApplication()));
+                shouldLoadDataFromRepo, new SharedPrefsUtils(getApplicationContext()));
 
         readAsCardFragment.setPresenter(readNotesAsCardsPresenter);
     }
