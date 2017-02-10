@@ -60,7 +60,5 @@ public class CollectionsRepositoryTest {
         doNothing().when(mockDatasource).updateCollection(collection);
         repository.updateCollection(collection);
         verify(mockDatasource).updateCollection(collection);
-
-        //assertTrue(repository.hasCollection(cardCollection));
     }
 }
