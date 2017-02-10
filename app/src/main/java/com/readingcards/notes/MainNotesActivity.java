@@ -53,7 +53,7 @@ public class MainNotesActivity extends AppCompatActivity {
     private WelcomeHelper welcomeScreen;
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
     private DrawerLayout mDrawerLayout;
-    private NotesPresenter mNotesPresenter;
+    private NotesPresenter notesPresenter;
 
     @TargetApi(Build.VERSION_CODES.N_MR1)
     @Override
@@ -85,7 +85,7 @@ public class MainNotesActivity extends AppCompatActivity {
         }
 
         // Create the presenter
-        mNotesPresenter = new NotesPresenter(
+        notesPresenter = new NotesPresenter(
                 Injection.provideNotesRepository(getApplicationContext()), notesFragment);
 
         // Set up the navigation drawer.
@@ -99,7 +99,7 @@ public class MainNotesActivity extends AppCompatActivity {
     }
 
     private void setAppStatistics(NavigationView navigationView) {
-        int notesSize = mNotesPresenter.getAllNotesSize();
+        int notesSize = notesPresenter.getAllNotesSize();
 
         View header = navigationView.getHeaderView(0);
         TextView notesStatsTextView = (TextView) header.findViewById(R.id.notes_statistics_view);
@@ -138,7 +138,7 @@ public class MainNotesActivity extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(CURRENT_FILTERING_KEY, mNotesPresenter.getFiltering());
+        outState.putSerializable(CURRENT_FILTERING_KEY, notesPresenter.getFiltering());
         super.onSaveInstanceState(outState);
         welcomeScreen.onSaveInstanceState(outState);
     }
