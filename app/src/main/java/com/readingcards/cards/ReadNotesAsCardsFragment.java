@@ -304,10 +304,7 @@ public class ReadNotesAsCardsFragment extends Fragment implements ReadNotesAsCar
     }
 
     private void saveReadingTime() {
-        // TODO save in sharedprefs the timer
         circleTimerView.getCurrentTime();
-
-        // TODO show time countdown in fab btn
         showTimerOnTextView(TimeUnit.SECONDS
                 .toMillis(circleTimerView.getCurrentTime()), 1000);
     }
