@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.readingcards.Injection;
 import com.readingcards.R;
 import com.readingcards.notes.MainNotesActivity;
+import com.readingcards.statistics.StatisticsPresenter;
 import com.readingcards.util.ActivityUtils;
 import com.readingcards.util.EspressoIdlingResource;
 
@@ -27,6 +28,7 @@ public class CardCollectionActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private CollectionPresenter collectionPresenter;
+    private StatisticsPresenter statsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class CardCollectionActivity extends AppCompatActivity {
         mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
+            statsPresenter = new StatisticsPresenter(Injection.provideStatisticsRepository(getApplicationContext()));
+            ActivityUtils.setAppStatistics(navigationView, statsPresenter);
             setupDrawerContent(navigationView);
         }
 
