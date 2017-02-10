@@ -299,8 +299,6 @@ public class CircleTimerView extends View {
     }
 
     private float getFontHeight(Paint paint) {
-        // FontMetrics sF = paint.getFontMetrics();
-        // return sF.descent - sF.ascent;
         Rect rect = new Rect();
         paint.getTextBounds("1", 0, 1, rect);
         return rect.height();
