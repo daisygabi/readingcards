@@ -29,4 +29,6 @@
     <dimen name="card_corner_radius">6sp</dimen>
     <dimen name="elevation_large">8dp</dimen>
 
+    <dimen name="stats_normal">16sp</dimen>
+
 </resources>
