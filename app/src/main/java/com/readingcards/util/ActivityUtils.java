@@ -18,12 +18,16 @@ package com.readingcards.util;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.TextView;
 
 import com.readingcards.R;
+import com.readingcards.statistics.StatisticsPresenter;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -55,5 +59,17 @@ public class ActivityUtils {
         builder.setCancelable(false);
 
         return builder;
+    }
+
+    public static void setAppStatistics(NavigationView navigationView, final StatisticsPresenter statsPresenter) {
+        View header = navigationView.getHeaderView(0);
+        TextView notesStatsTextView = (TextView) header.findViewById(R.id.notes_statistics_view);
+        TextView collectionsStatsTextView = (TextView) header.findViewById(R.id.collections_statistics_view);
+
+        int notesSize = statsPresenter.getAllNotesSize();
+        notesStatsTextView.setText(notesSize + " Notes");
+
+        int collectionsSize = statsPresenter.getAllCardCollectionsSize();
+        collectionsStatsTextView.setText(collectionsSize + " Collections");
     }
 }
