@@ -58,7 +58,6 @@ public class CollectionPresenter implements CollectionContract.Presenter {
     @Override
     public void deleteCollection(CardCollection collection) throws CardCollectionDoesNotExistsException {
         deleteOneCollection(collection);
-        // TODO show on view this modification?
     }
 
     private void deleteOneCollection(CardCollection collection) throws CardCollectionDoesNotExistsException {
