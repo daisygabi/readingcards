@@ -105,11 +105,6 @@ public class NotesPresenter implements NotesContract.Presenter {
         }
     }
 
-    @Override
-    public int getAllNotesSize() {
-        return repository.getAllNotesSize();
-    }
-
     /**
      * @param forceUpdate   Pass in true to refresh the data in the {@link NoteDataSource}
      * @param showLoadingUI Pass in true to display a loading icon in the UI

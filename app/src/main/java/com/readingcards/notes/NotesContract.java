@@ -75,7 +75,5 @@ public interface NotesContract {
         void setFiltering(NotesFilterType type);
 
         void createDummyNotesAtFirstRun();
-
-        int getAllNotesSize();
     }
 }
