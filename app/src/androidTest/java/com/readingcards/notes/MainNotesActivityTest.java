@@ -28,9 +28,6 @@ import static org.hamcrest.Matchers.allOf;
 @RunWith(AndroidJUnit4.class)
 public class MainNotesActivityTest {
 
-//    @Rule
-//    public ActivityTestRule<CardCollectionActivity> collectionActivityTestRule = new ActivityTestRule<CardCollectionActivity>(CardCollectionActivity.class);
-
     @Rule
     public ActivityTestRule<MainNotesActivity> notesActivityTestRule = new ActivityTestRule<>(MainNotesActivity.class);
 
@@ -56,37 +53,6 @@ public class MainNotesActivityTest {
         onView(withId(R.id.drawer_layout))
                 .check(matches(isOpen(Gravity.LEFT)));
     }
-
-//    @Test
-//    public void clickOnNavigationItem_ShowsNotesScreen() {
-//        // Open Drawer to click on navigation
-//        onView(withId(R.id.drawer_layout))
-//                .check(matches(isClosed(Gravity.LEFT)))
-//                .perform(open());
-//
-//        onView(withId(R.id.notes_nav_view)).perform(NavigationViewActions.navigateTo(R.id.notes_navigation_menu_item));
-//
-//        notesActivityTestRule.getActivity();
-//        // Check that you Activity was opened.
-//        onData(is(instanceOf(NavigationView.class)))
-//                .inAdapterView(withId(R.id.notes_navigation_menu_item))
-//                .atPosition(0).perform(ViewActions.click());
-//    }
-
-//    @Test
-//    public void clickOnNavigationItem_ShowsCollectionsScreen() {
-//        // Open Drawer to click on navigation
-//        onView(withId(R.id.drawer_layout))
-//                .check(matches(isClosed(Gravity.LEFT)))
-//                .perform(open());
-//
-//        // Start collections screen
-//        onView(withId(R.id.nav_view))
-//                .perform(navigateTo(R.id.collection_cards_navigation_menu_item));
-//
-//        // Test activity has started
-//        intended(hasComponent(new ComponentName(getTargetContext(), CardCollectionActivity.class)));
-//    }
 
     @Test
     public void clickAddNoteFabButton() {
