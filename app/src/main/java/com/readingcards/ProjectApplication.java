@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.readingcards.data.domain.CardCollection;
 import com.readingcards.data.domain.Note;
+import com.readingcards.util.FontsOverride;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,9 @@ public class ProjectApplication extends Application {
         classes.add(Note.class);
         config.setClasses(classes);
         RushCore.initialize(config);
+
+        // Add font
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "font/Roboto-Light.ttf");
     }
 
 }
