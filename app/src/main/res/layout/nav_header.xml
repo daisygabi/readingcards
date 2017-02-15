@@ -23,7 +23,7 @@
     <TextView
             android:id="@+id/statistics_label"
             android:layout_width="match_parent"
-            android:background="@color/step_two"
+            android:background="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="@android:color/white"
