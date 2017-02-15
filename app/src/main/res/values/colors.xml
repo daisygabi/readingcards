@@ -14,9 +14,9 @@
   ~ limitations under the License.
   -->
 <resources>
-    <color name="colorPrimary">#4E99B1</color>
-    <color name="colorPrimaryDark">#23636F</color>
-    <color name="colorAccent">#CDDC39</color>
+    <color name="colorPrimary">#9C27B0</color>
+    <color name="colorPrimaryDark">#7B1FA2</color>
+    <color name="colorAccent">#00BCD4</color>
     <color name="bottom_sheet">#6EC3F3</color>
     <color name="collection_divider">#e0cbf4</color>
     <color name="collection_item_divider">#e9ebe8</color>
