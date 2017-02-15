@@ -30,7 +30,8 @@
                 android:maxLines="1"
                 android:textSize="@dimen/normal_text"
                 android:focusableInTouchMode="true"
-                android:text=""
+                android:paddingBottom="@dimen/activity_horizontal_margin"
+                android:typeface="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
         <EditText
@@ -40,6 +41,7 @@
                 android:maxLength="400"
                 android:textSize="@dimen/normal_text"
                 android:background="@null"
+                android:typeface="monospace"
                 android:hint="@string/description_hint"
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
                 android:text=""/>
@@ -49,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/append_notes_to_collection"
                 android:textSize="@dimen/header"
+                android:typeface="monospace"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
 
@@ -68,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
+                    android:typeface="monospace"
                     android:text="@string/empty_list"/>
         </LinearLayout>
 </LinearLayout>

@@ -55,7 +55,8 @@
                     android:layout_gravity="center"
                     android:drawableStart="@drawable/ic_assignment_turned_in_24dp"
                     android:text="@string/no_collections"
-                    android:layout_marginBottom="@dimen/list_item_padding"/>
+                    android:layout_marginBottom="@dimen/list_item_padding"
+                    android:typeface="monospace"/>
 
         </LinearLayout>
     </RelativeLayout>

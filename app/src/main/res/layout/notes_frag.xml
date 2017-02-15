@@ -43,7 +43,8 @@
                     android:layout_marginLeft="@dimen/list_item_padding"
                     android:layout_marginRight="@dimen/list_item_padding"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:typeface="monospace"/>
 
             <ListView
                     android:id="@+id/notes_list"
@@ -58,7 +59,8 @@
                     android:background="@drawable/touch_feedback"
                     android:gravity="center"
                     android:visibility="gone"
-                    android:text="@string/no_notes_add"/>
+                    android:text="@string/no_notes_add"
+                    android:typeface="monospace"/>
         </LinearLayout>
 
         <LinearLayout
@@ -84,7 +86,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/no_notes_add"
-                    android:layout_marginBottom="@dimen/list_item_padding"/>
+                    android:layout_marginBottom="@dimen/list_item_padding"
+                    android:typeface="monospace"/>
 
         </LinearLayout>
     </RelativeLayout>

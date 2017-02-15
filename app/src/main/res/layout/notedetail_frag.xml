@@ -34,6 +34,7 @@
         android:layout_toEndOf="@id/note_detail_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:typeface="monospace"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <TextView
@@ -42,6 +43,7 @@
         android:layout_below="@id/note_detail_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:typeface="monospace"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </RelativeLayout>

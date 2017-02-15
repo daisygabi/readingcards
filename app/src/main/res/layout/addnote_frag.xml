@@ -36,7 +36,7 @@
                 android:maxLines="1"
                 android:nextFocusUp="@id/add_note_title"
                 android:nextFocusDown="@+id/add_note_description"
-                android:text=""
+                android:typeface="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
         <EditText
@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:hint="@string/description_hint"
-                android:text=""/>
+                android:typeface="monospace"/>
 
     </LinearLayout>
 </ScrollView>
