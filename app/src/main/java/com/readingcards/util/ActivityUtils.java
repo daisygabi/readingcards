@@ -63,13 +63,13 @@ public class ActivityUtils {
 
     public static void setAppStatistics(NavigationView navigationView, final StatisticsPresenter statsPresenter) {
         View header = navigationView.getHeaderView(0);
-        TextView notesStatsTextView = (TextView) header.findViewById(R.id.notes_statistics_view);
-        TextView collectionsStatsTextView = (TextView) header.findViewById(R.id.collections_statistics_view);
+        TextView notesStatsTextView = (TextView) header.findViewById(R.id.notes_statistics_nr_view);
+        TextView collectionsStatsTextView = (TextView) header.findViewById(R.id.collections_statistics_nr_view);
 
         int notesSize = statsPresenter.getAllNotesSize();
-        notesStatsTextView.setText(notesSize + " Notes");
+        notesStatsTextView.setText(String.valueOf(notesSize));
 
         int collectionsSize = statsPresenter.getAllCardCollectionsSize();
-        collectionsStatsTextView.setText(collectionsSize + " Collections");
+        collectionsStatsTextView.setText(String.valueOf(collectionsSize));
     }
 }
