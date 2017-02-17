@@ -26,6 +26,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import link.fls.swipestack.SwipeStack;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -37,16 +40,31 @@ public class ReadNotesAsCardsFragment extends Fragment implements ReadNotesAsCar
 
     private ReadNotesAsCardContract.Presenter presenter;
 
-    private Button refreshCardsBtn;
+    @BindView(R.id.refresh_cards_btn)
+    Button refreshCardsBtn;
+
     private FloatingActionButton timerFab;
-    private CircleTimerView circleTimerView;
-    private TextView timerTxt;
-    private RelativeLayout bottomSheet;
+
+    @BindView(R.id.circle_timer_view)
+    CircleTimerView circleTimerView;
+
+    @BindView(R.id.timer_text_view)
+    TextView timerTxt;
+
+    @BindView(R.id.linear_layout_bottom_sheet)
+    RelativeLayout bottomSheet;
+
     private BottomSheetBehavior bottomSheetBehavior;
-    private Button cancelTimerBtn;
-    private SwipeStack swipeStack;
+
+    @BindView(R.id.cancel_timer_btn)
+    Button cancelTimerBtn;
+
+    @BindView(R.id.swipe_stack)
+    SwipeStack swipeStack;
+
     private SwipeCardsAdapter adapter;
     private CountDownTimer timer;
+    private Unbinder unbinder;
 
     public static ReadNotesAsCardsFragment newInstance(final CardCollection collectionToShow) {
         Bundle arguments = new Bundle();
@@ -66,15 +84,9 @@ public class ReadNotesAsCardsFragment extends Fragment implements ReadNotesAsCar
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.read_notes_as_cards_frag, container, false);
+        unbinder = ButterKnife.bind(this, root);
 
-        swipeStack = (SwipeStack) root.findViewById(R.id.swipe_stack);
-        refreshCardsBtn = (Button) root.findViewById(R.id.refresh_cards_btn);
-
-        circleTimerView = (CircleTimerView) root.findViewById(R.id.circle_timer_view);
-        bottomSheet = (RelativeLayout) root.findViewById(R.id.linear_layout_bottom_sheet);
         timerFab = (FloatingActionButton) getActivity().findViewById(R.id.timer_fab);
-        timerTxt = (TextView) root.findViewById(R.id.timer_text_view);
-        cancelTimerBtn = (Button) root.findViewById(R.id.cancel_timer_btn);
 
         // set behaviour of bottom sheet
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
@@ -178,6 +190,9 @@ public class ReadNotesAsCardsFragment extends Fragment implements ReadNotesAsCar
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
     }
 
     /**
