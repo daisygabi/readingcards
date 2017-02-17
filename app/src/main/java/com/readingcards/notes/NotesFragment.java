@@ -41,8 +41,8 @@ import android.widget.TextView;
 
 import com.readingcards.R;
 import com.readingcards.addeditnote.AddEditNoteActivity;
+import com.readingcards.addeditnote.AddEditNoteFragment;
 import com.readingcards.data.domain.Note;
-import com.readingcards.notedetail.NoteDetailActivity;
 import com.readingcards.notes.adapter.NoteAdapter;
 import com.readingcards.util.ActivityUtils;
 import com.readingcards.util.SharedPrefsUtils;
@@ -286,9 +286,9 @@ public class NotesFragment extends Fragment implements NotesContract.View {
     public void showNoteDetailsUi(String noteId) {
         // in it's own Activity, since it makes more sense that way and it gives us the flexibility
         // to show some Intent stubbing.
-        Intent intent = new Intent(getContext(), NoteDetailActivity.class);
-        intent.putExtra(NoteDetailActivity.EXTRA_NOTE_ID, noteId);
-        ActivityCompat.startActivity(getContext(), intent, null);
+        Intent intent = new Intent(getContext(), AddEditNoteActivity.class);
+        intent.putExtra(AddEditNoteFragment.ARGUMENT_EDIT_NOTE_ID, noteId);
+        ActivityCompat.startActivity(getActivity(), intent, null);
     }
 
     @Override
