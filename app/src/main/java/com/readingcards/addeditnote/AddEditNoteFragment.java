@@ -33,6 +33,10 @@ import com.readingcards.R;
 import com.readingcards.data.domain.Note;
 import com.readingcards.notes.MainNotesActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -41,12 +45,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class AddEditNoteFragment extends Fragment implements AddEditNoteContract.View {
 
     public static final String ARGUMENT_EDIT_NOTE_ID = "EDIT_NOTE_ID";
-
     private AddEditNoteContract.Presenter presenter;
+    private Unbinder unbinder;
 
-    private EditText titleTxt;
-    private EditText contentTxt;
-    private static String id;
+    @BindView(R.id.add_note_title)
+    EditText titleTxt;
+
+    @BindView(R.id.add_note_description)
+    EditText contentTxt;
 
     public static AddEditNoteFragment newInstance() {
         return new AddEditNoteFragment();
@@ -91,8 +97,7 @@ public class AddEditNoteFragment extends Fragment implements AddEditNoteContract
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.addnote_frag, container, false);
-        titleTxt = (EditText) root.findViewById(R.id.add_note_title);
-        contentTxt = (EditText) root.findViewById(R.id.add_note_description);
+        unbinder = ButterKnife.bind(this, root);
 
         setHasOptionsMenu(true);
         return root;
@@ -128,5 +133,12 @@ public class AddEditNoteFragment extends Fragment implements AddEditNoteContract
     public void showNote(@NonNull String collectionId) {
         Intent intent = new Intent(getContext(), MainNotesActivity.class);
         ActivityCompat.startActivity(getActivity(), intent, null);
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
     }
 }
