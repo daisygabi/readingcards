@@ -325,7 +325,9 @@ public class ReadNotesAsCardsFragment extends Fragment implements ReadNotesAsCar
     }
 
     private void updateUIWithTimerText(long miliseconds) {
-        timerTxt.setText(String.format(Locale.ENGLISH, "%d:%02d", (int) (miliseconds / (1000 * 60)), (int) ((miliseconds / 1000) % 60)));
+        if(timerTxt != null) {
+            timerTxt.setText(String.format(Locale.ENGLISH, "%d:%02d", (int) (miliseconds / (1000 * 60)), (int) ((miliseconds / 1000) % 60)));
+        }
     }
 
     private void showTimerOnTextView(long duration, long interval) {
