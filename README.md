@@ -16,3 +16,7 @@ How to reschin:
 * Replace all the icons/resources from the '/res' folder that you want to
 * To change text go to 'res/strings.xml'
 * To change colors go to 'res/colors.xml'
+
+<a href="url"><img src="https://cloud.githubusercontent.com/assets/527144/23138706/8f24f330-f7b1-11e6-8db7-4237ac132f62.png" align="left" height="250" width="150" ></a>
+<a href="url"><img src="https://cloud.githubusercontent.com/assets/527144/23138708/8f26f482-f7b1-11e6-97b3-31c8b90b166c.png" align="left" height="250" width="150" ></a>
+<a href="url"><img src="https://cloud.githubusercontent.com/assets/527144/23138709/8f27242a-f7b1-11e6-83e3-2951e8431e2e.png" align="left" height="250" width="150" ></a>
