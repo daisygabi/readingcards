@@ -43,7 +43,7 @@
 
         <!-- REQUIRED Set the package for your model classes,
       you can set mutiple packages by using the addPackageRoot on AndroidInitializeConfig -->
-        <meta-data android:name="Rush_classes_package" android:value="com.example.app.model" />
+        <meta-data android:name="Rush_classes_package" android:value="com.readingcards.data.domain" />
 
         <!-- Updating this will cause a database upgrade -->
         <meta-data android:name="Rush_db_version" android:value="1" />
