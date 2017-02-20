@@ -157,7 +157,6 @@ public class CardCollectionFragment extends Fragment implements CollectionContra
 
     @Override
     public void showSuccessfullySavedMessage(String message) {
-        System.out.println("showSuccessfullySavedMessage: " + message);
         noCollectionsLayout.setVisibility(View.GONE);
         collectionsLayout.setVisibility(View.VISIBLE);
     }

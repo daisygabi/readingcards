@@ -88,7 +88,6 @@ public class AddEditNotePresenter implements AddEditNoteContract.Presenter {
 
             @Override
             public void onError(String message) {
-                System.out.println("Error getting note details: " + message);
             }
         });
     }

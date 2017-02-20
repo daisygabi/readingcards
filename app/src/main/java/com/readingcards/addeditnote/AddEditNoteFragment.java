@@ -105,7 +105,6 @@ public class AddEditNoteFragment extends Fragment implements AddEditNoteContract
 
     @Override
     public void showErrorMessage(String message) {
-        System.out.println(message);
     }
 
     @Override
