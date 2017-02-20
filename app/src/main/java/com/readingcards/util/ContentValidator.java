@@ -15,15 +15,12 @@ public class ContentValidator implements TextWatcher {
     private static String onlyDigitRegex = "\\d+";
 
     public static boolean isContentValid(final CharSequence content) {
-        System.out.print("0 Valid: " + isValid);
         if(content == null ||
                 content.length() <= MIN_LENGTH ||
                 content.length() > MAX_LENGTH ||
                 content.toString().matches(onlyDigitRegex)) {
             isValid = false;
-            System.out.print("set valid to false");
         }
-        System.out.print("1 Valid: " + isValid);
         return isValid;
     }
 
