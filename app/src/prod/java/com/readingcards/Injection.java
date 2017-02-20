@@ -21,8 +21,10 @@ import android.support.annotation.NonNull;
 
 import com.readingcards.data.repository.CollectionsRepository;
 import com.readingcards.data.repository.NotesRepository;
+import com.readingcards.data.repository.StatisticsRepository;
 import com.readingcards.data.source.CollectionDataSourceImplementation;
 import com.readingcards.data.source.NoteDataSourceImplementation;
+import com.readingcards.data.source.StatisticsDataSourceImplementation;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -39,5 +41,10 @@ public class Injection {
     public static CollectionsRepository provideCollectionRepository(@NonNull Context context) {
         checkNotNull(context);
         return CollectionsRepository.getInstance(CollectionDataSourceImplementation.getInstance());
+    }
+
+    public static StatisticsRepository provideStatisticsRepository(@NonNull Context context) {
+        checkNotNull(context);
+        return StatisticsRepository.getInstance(StatisticsDataSourceImplementation.getInstance());
     }
 }
