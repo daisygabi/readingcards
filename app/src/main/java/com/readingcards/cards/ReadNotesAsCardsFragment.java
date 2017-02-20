@@ -336,7 +336,9 @@ public class ReadNotesAsCardsFragment extends Fragment implements ReadNotesAsCar
             @Override
             public void onFinish() {
                 // Update UI
-                timerTxt.setText("---");
+                if(timerTxt != null) {
+                    timerTxt.setText("---");
+                }
             }
 
             @Override
