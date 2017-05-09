@@ -1,4 +1,4 @@
-(newdev branch)This is a simple no internet connection needed notes app. Create notes with your ideas and make collections out of them that you can practice reading on a timer. You are either preparing for a conference or to pitch your startup and you want your data secure on your phone stored only locally. You can create/edit/delete notes, create, view and delete Collections that you can create out of your notes. Practice setting a timer while reading the information and see if you can manage to finish reading in the time required.
+again there is a change from 'newdev' branch(newdev branch)This is a simple no internet connection needed notes app. Create notes with your ideas and make collections out of them that you can practice reading on a timer. You are either preparing for a conference or to pitch your startup and you want your data secure on your phone stored only locally. You can create/edit/delete notes, create, view and delete Collections that you can create out of your notes. Practice setting a timer while reading the information and see if you can manage to finish reading in the time required.
 
 Features:
 * Create, edit, delete Notes
